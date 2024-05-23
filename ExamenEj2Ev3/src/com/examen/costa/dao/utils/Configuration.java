@@ -9,5 +9,6 @@ package com.examen.costa.dao.utils;
  * @author dev
  */
 public class Configuration {
-    
+      public static final String DRIVER = "org.sqlite.JDBC";
+    public static final String URL = "jdbc:sqlite:./Examen.db";
 }

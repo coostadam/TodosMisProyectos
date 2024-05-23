@@ -4,10 +4,13 @@
  */
 package com.examen.costa.dao.interfaces;
 
+import com.examen.costa.dao.pojo.Casa;
+
 /**
  *
  * @author dev
  */
 public interface CasaDAO {
     
+    public int addRegistro(Casa c) throws Exception;
 }
