@@ -73,14 +73,22 @@ public class CocheDAOimpl implements CocheDAO, AutoCloseable {
             }
 
             rs = pstm.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 c = new Coche(rs.getString("matricula"), rs.getString("modelo"), rs.getString("marca"), rs.getString("color"));
                 al.add(c);
             }
-            
+
         } catch (Exception e) {
             throw e;
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                    throw e;
+                }
+            }
         }
         return al;
     }

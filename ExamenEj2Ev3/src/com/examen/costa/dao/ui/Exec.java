@@ -18,7 +18,6 @@ public class Exec {
     public static void main(String[] args) {
         int contRegistros = 0;
         Casa c;
-        boolean exe;
         File f = new File("./Casa.csv");
 
         try (Scanner scFile = new Scanner(f);
@@ -33,6 +32,7 @@ public class Exec {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
         System.out.println("Se han añadido: " + contRegistros);
     }
 }
