@@ -13,4 +13,6 @@ import com.examen.costa.dao.pojo.Casa;
 public interface CasaDAO {
     
     public int addRegistro(Casa c) throws Exception;
+    public void deleteRegistros() throws Exception;
+    
 }

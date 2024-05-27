@@ -30,13 +30,41 @@ public class CasaDAOimpl implements CasaDAO, AutoCloseable {
     }
 
     @Override
+    public void deleteRegistros() throws Exception {
+        String sentencia = "DELETE FROM casa ";
+        
+        try(PreparedStatement pstm = con.prepareStatement(sentencia);
+                ){
+            
+            pstm.execute();
+            
+        }catch (Exception e){
+            throw e;
+        }
+    }
+    
+    @Override
     public int addRegistro(Casa c) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int cont = 0;
+        
+        String sentencia = "insert into casa values(?,?,?,?) ";
+        
+        try(PreparedStatement pstm = con.prepareStatement(sentencia);
+                ){
+            pstm.setString(1, c.getId());
+            pstm.setString(2, c.getDireccion());
+            pstm.setString(3, c.getPoblacion());
+            pstm.setString(4, c.getProvincia());
+            
+            cont += pstm.executeUpdate();
+        }catch (Exception e){
+            throw e;
+        }
+        return cont;
     }
 
     @Override
     public void close() throws Exception {
         con.close();
     }
-
 }
